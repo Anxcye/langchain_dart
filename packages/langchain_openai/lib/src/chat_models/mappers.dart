@@ -298,10 +298,15 @@ extension CreateChatCompletionStreamResponseMapper
       throw OpenAIRefusalException(delta.refusal!);
     }
 
+    final reasoningContent = delta?.reasoningContent?.isEmpty ?? true ? '' : '<think/>${delta!.reasoningContent!}';
+    final content = delta?.content?.startsWith('<think/>') ?? false
+        ? ' ${delta!.content!}'
+        : delta?.content;
+    
     return ChatResult(
       id: id,
       output: AIChatMessage(
-        content: delta?.content ?? '',
+        content: content ?? reasoningContent,
         toolCalls: delta?.toolCalls
                 ?.map(_mapMessageToolCall)
                 .toList(growable: false) ??
@@ -312,8 +317,6 @@ extension CreateChatCompletionStreamResponseMapper
         'created': created,
         if (model != null) 'model': model,
         if (systemFingerprint != null) 'system_fingerprint': systemFingerprint,
-        if (delta?.reasoningContent?.isNotEmpty ?? false)
-          'reasoning_content': delta!.reasoningContent,
       },
       usage: _mapUsage(usage),
       streaming: true,
