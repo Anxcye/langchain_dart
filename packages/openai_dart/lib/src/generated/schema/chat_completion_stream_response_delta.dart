@@ -24,6 +24,10 @@ abstract class ChatCompletionStreamResponseDelta
     )
     ChatCompletionMessageRole? role,
 
+    /// The reasoning content of the chunk message.
+    @JsonKey(name: 'reasoning_content', includeIfNull: false)
+    String? reasoningContent,
+
     /// The contents of the chunk message.
     @JsonKey(includeIfNull: false) String? content,
 
@@ -52,6 +56,7 @@ abstract class ChatCompletionStreamResponseDelta
   /// List of all property names of schema
   static const List<String> propertyNames = [
     'role',
+    'reasoning_content',
     'content',
     'refusal',
     'tool_calls',
@@ -68,6 +73,7 @@ abstract class ChatCompletionStreamResponseDelta
   Map<String, dynamic> toMap() {
     return {
       'role': role,
+      'reasoning_content': reasoningContent,
       'content': content,
       'refusal': refusal,
       'tool_calls': toolCalls,

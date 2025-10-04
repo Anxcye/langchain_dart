@@ -16343,6 +16343,10 @@ mixin _$ChatCompletionStreamResponseDelta {
       includeIfNull: false, unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
   ChatCompletionMessageRole? get role;
 
+  /// The reasoning content of the chunk message.
+  @JsonKey(name: 'reasoning_content', includeIfNull: false)
+  String? get reasoningContent;
+
   /// The contents of the chunk message.
   @JsonKey(includeIfNull: false)
   String? get content;
@@ -16382,6 +16386,8 @@ mixin _$ChatCompletionStreamResponseDelta {
         (other.runtimeType == runtimeType &&
             other is ChatCompletionStreamResponseDelta &&
             (identical(other.role, role) || other.role == role) &&
+            (identical(other.reasoningContent, reasoningContent) ||
+                other.reasoningContent == reasoningContent) &&
             (identical(other.content, content) || other.content == content) &&
             (identical(other.refusal, refusal) || other.refusal == refusal) &&
             const DeepCollectionEquality().equals(other.toolCalls, toolCalls) &&
@@ -16392,12 +16398,19 @@ mixin _$ChatCompletionStreamResponseDelta {
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, role, content, refusal,
-      const DeepCollectionEquality().hash(toolCalls), functionCall, audio);
+  int get hashCode => Object.hash(
+      runtimeType,
+      role,
+      reasoningContent,
+      content,
+      refusal,
+      const DeepCollectionEquality().hash(toolCalls),
+      functionCall,
+      audio);
 
   @override
   String toString() {
-    return 'ChatCompletionStreamResponseDelta(role: $role, content: $content, refusal: $refusal, toolCalls: $toolCalls, functionCall: $functionCall, audio: $audio)';
+    return 'ChatCompletionStreamResponseDelta(role: $role, reasoningContent: $reasoningContent, content: $content, refusal: $refusal, toolCalls: $toolCalls, functionCall: $functionCall, audio: $audio)';
   }
 }
 
@@ -16413,6 +16426,8 @@ abstract mixin class $ChatCompletionStreamResponseDeltaCopyWith<$Res> {
           includeIfNull: false,
           unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
       ChatCompletionMessageRole? role,
+      @JsonKey(name: 'reasoning_content', includeIfNull: false)
+      String? reasoningContent,
       @JsonKey(includeIfNull: false) String? content,
       @JsonKey(includeIfNull: false) String? refusal,
       @JsonKey(name: 'tool_calls', includeIfNull: false)
@@ -16440,6 +16455,7 @@ class _$ChatCompletionStreamResponseDeltaCopyWithImpl<$Res>
   @override
   $Res call({
     Object? role = freezed,
+    Object? reasoningContent = freezed,
     Object? content = freezed,
     Object? refusal = freezed,
     Object? toolCalls = freezed,
@@ -16451,6 +16467,10 @@ class _$ChatCompletionStreamResponseDeltaCopyWithImpl<$Res>
           ? _self.role
           : role // ignore: cast_nullable_to_non_nullable
               as ChatCompletionMessageRole?,
+      reasoningContent: freezed == reasoningContent
+          ? _self.reasoningContent
+          : reasoningContent // ignore: cast_nullable_to_non_nullable
+              as String?,
       content: freezed == content
           ? _self.content
           : content // ignore: cast_nullable_to_non_nullable
@@ -16604,6 +16624,8 @@ extension ChatCompletionStreamResponseDeltaPatterns
                 includeIfNull: false,
                 unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
             ChatCompletionMessageRole? role,
+            @JsonKey(name: 'reasoning_content', includeIfNull: false)
+            String? reasoningContent,
             @JsonKey(includeIfNull: false) String? content,
             @JsonKey(includeIfNull: false) String? refusal,
             @JsonKey(name: 'tool_calls', includeIfNull: false)
@@ -16618,8 +16640,8 @@ extension ChatCompletionStreamResponseDeltaPatterns
     final _that = this;
     switch (_that) {
       case _ChatCompletionStreamResponseDelta() when $default != null:
-        return $default(_that.role, _that.content, _that.refusal,
-            _that.toolCalls, _that.functionCall, _that.audio);
+        return $default(_that.role, _that.reasoningContent, _that.content,
+            _that.refusal, _that.toolCalls, _that.functionCall, _that.audio);
       case _:
         return orElse();
     }
@@ -16645,6 +16667,8 @@ extension ChatCompletionStreamResponseDeltaPatterns
                 includeIfNull: false,
                 unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
             ChatCompletionMessageRole? role,
+            @JsonKey(name: 'reasoning_content', includeIfNull: false)
+            String? reasoningContent,
             @JsonKey(includeIfNull: false) String? content,
             @JsonKey(includeIfNull: false) String? refusal,
             @JsonKey(name: 'tool_calls', includeIfNull: false)
@@ -16658,8 +16682,8 @@ extension ChatCompletionStreamResponseDeltaPatterns
     final _that = this;
     switch (_that) {
       case _ChatCompletionStreamResponseDelta():
-        return $default(_that.role, _that.content, _that.refusal,
-            _that.toolCalls, _that.functionCall, _that.audio);
+        return $default(_that.role, _that.reasoningContent, _that.content,
+            _that.refusal, _that.toolCalls, _that.functionCall, _that.audio);
       case _:
         throw StateError('Unexpected subclass');
     }
@@ -16684,6 +16708,8 @@ extension ChatCompletionStreamResponseDeltaPatterns
                 includeIfNull: false,
                 unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
             ChatCompletionMessageRole? role,
+            @JsonKey(name: 'reasoning_content', includeIfNull: false)
+            String? reasoningContent,
             @JsonKey(includeIfNull: false) String? content,
             @JsonKey(includeIfNull: false) String? refusal,
             @JsonKey(name: 'tool_calls', includeIfNull: false)
@@ -16697,8 +16723,8 @@ extension ChatCompletionStreamResponseDeltaPatterns
     final _that = this;
     switch (_that) {
       case _ChatCompletionStreamResponseDelta() when $default != null:
-        return $default(_that.role, _that.content, _that.refusal,
-            _that.toolCalls, _that.functionCall, _that.audio);
+        return $default(_that.role, _that.reasoningContent, _that.content,
+            _that.refusal, _that.toolCalls, _that.functionCall, _that.audio);
       case _:
         return null;
     }
@@ -16714,6 +16740,8 @@ class _ChatCompletionStreamResponseDelta
           includeIfNull: false,
           unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
       this.role,
+      @JsonKey(name: 'reasoning_content', includeIfNull: false)
+      this.reasoningContent,
       @JsonKey(includeIfNull: false) this.content,
       @JsonKey(includeIfNull: false) this.refusal,
       @JsonKey(name: 'tool_calls', includeIfNull: false)
@@ -16732,6 +16760,11 @@ class _ChatCompletionStreamResponseDelta
   @JsonKey(
       includeIfNull: false, unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
   final ChatCompletionMessageRole? role;
+
+  /// The reasoning content of the chunk message.
+  @override
+  @JsonKey(name: 'reasoning_content', includeIfNull: false)
+  final String? reasoningContent;
 
   /// The contents of the chunk message.
   @override
@@ -16791,6 +16824,8 @@ class _ChatCompletionStreamResponseDelta
         (other.runtimeType == runtimeType &&
             other is _ChatCompletionStreamResponseDelta &&
             (identical(other.role, role) || other.role == role) &&
+            (identical(other.reasoningContent, reasoningContent) ||
+                other.reasoningContent == reasoningContent) &&
             (identical(other.content, content) || other.content == content) &&
             (identical(other.refusal, refusal) || other.refusal == refusal) &&
             const DeepCollectionEquality()
@@ -16802,12 +16837,19 @@ class _ChatCompletionStreamResponseDelta
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, role, content, refusal,
-      const DeepCollectionEquality().hash(_toolCalls), functionCall, audio);
+  int get hashCode => Object.hash(
+      runtimeType,
+      role,
+      reasoningContent,
+      content,
+      refusal,
+      const DeepCollectionEquality().hash(_toolCalls),
+      functionCall,
+      audio);
 
   @override
   String toString() {
-    return 'ChatCompletionStreamResponseDelta(role: $role, content: $content, refusal: $refusal, toolCalls: $toolCalls, functionCall: $functionCall, audio: $audio)';
+    return 'ChatCompletionStreamResponseDelta(role: $role, reasoningContent: $reasoningContent, content: $content, refusal: $refusal, toolCalls: $toolCalls, functionCall: $functionCall, audio: $audio)';
   }
 }
 
@@ -16825,6 +16867,8 @@ abstract mixin class _$ChatCompletionStreamResponseDeltaCopyWith<$Res>
           includeIfNull: false,
           unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
       ChatCompletionMessageRole? role,
+      @JsonKey(name: 'reasoning_content', includeIfNull: false)
+      String? reasoningContent,
       @JsonKey(includeIfNull: false) String? content,
       @JsonKey(includeIfNull: false) String? refusal,
       @JsonKey(name: 'tool_calls', includeIfNull: false)
@@ -16854,6 +16898,7 @@ class __$ChatCompletionStreamResponseDeltaCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   $Res call({
     Object? role = freezed,
+    Object? reasoningContent = freezed,
     Object? content = freezed,
     Object? refusal = freezed,
     Object? toolCalls = freezed,
@@ -16865,6 +16910,10 @@ class __$ChatCompletionStreamResponseDeltaCopyWithImpl<$Res>
           ? _self.role
           : role // ignore: cast_nullable_to_non_nullable
               as ChatCompletionMessageRole?,
+      reasoningContent: freezed == reasoningContent
+          ? _self.reasoningContent
+          : reasoningContent // ignore: cast_nullable_to_non_nullable
+              as String?,
       content: freezed == content
           ? _self.content
           : content // ignore: cast_nullable_to_non_nullable

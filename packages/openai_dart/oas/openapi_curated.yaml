@@ -3125,6 +3125,10 @@ components:
       properties:
         role:
           $ref: "#/components/schemas/ChatCompletionMessageRole"
+        reasoning_content:
+          type: string
+          description: |
+            The reasoning content of the chunk message.
         content:
           type: string
           description: The contents of the chunk message.
