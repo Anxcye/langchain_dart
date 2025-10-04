@@ -312,6 +312,8 @@ extension CreateChatCompletionStreamResponseMapper
         'created': created,
         if (model != null) 'model': model,
         if (systemFingerprint != null) 'system_fingerprint': systemFingerprint,
+        if (delta?.reasoningContent?.isNotEmpty ?? false)
+          'reasoning_content': delta!.reasoningContent,
       },
       usage: _mapUsage(usage),
       streaming: true,
