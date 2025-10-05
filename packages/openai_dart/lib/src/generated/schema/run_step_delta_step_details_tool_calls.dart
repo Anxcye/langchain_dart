@@ -78,8 +78,8 @@ sealed class RunStepDeltaStepDetailsToolCalls
 
   /// Object construction from a JSON representation
   factory RunStepDeltaStepDetailsToolCalls.fromJson(
-          Map<String, dynamic> json) =>
-      _$RunStepDeltaStepDetailsToolCallsFromJson(json);
+    Map<String, dynamic> json,
+  ) => _$RunStepDeltaStepDetailsToolCallsFromJson(json);
 }
 
 // ==========================================
@@ -106,8 +106,8 @@ abstract class RunStepDeltaStepDetailsToolCallsFunction
 
   /// Object construction from a JSON representation
   factory RunStepDeltaStepDetailsToolCallsFunction.fromJson(
-          Map<String, dynamic> json) =>
-      _$RunStepDeltaStepDetailsToolCallsFunctionFromJson(json);
+    Map<String, dynamic> json,
+  ) => _$RunStepDeltaStepDetailsToolCallsFunctionFromJson(json);
 
   /// List of all property names of schema
   static const List<String> propertyNames = ['name', 'arguments', 'output'];
@@ -119,10 +119,6 @@ abstract class RunStepDeltaStepDetailsToolCallsFunction
 
   /// Map representation of object (not serialized)
   Map<String, dynamic> toMap() {
-    return {
-      'name': name,
-      'arguments': arguments,
-      'output': output,
-    };
+    return {'name': name, 'arguments': arguments, 'output': output};
   }
 }

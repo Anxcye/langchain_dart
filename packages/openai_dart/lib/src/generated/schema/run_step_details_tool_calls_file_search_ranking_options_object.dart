@@ -25,8 +25,8 @@ abstract class RunStepDetailsToolCallsFileSearchRankingOptionsObject
 
   /// Object construction from a JSON representation
   factory RunStepDetailsToolCallsFileSearchRankingOptionsObject.fromJson(
-          Map<String, dynamic> json) =>
-      _$RunStepDetailsToolCallsFileSearchRankingOptionsObjectFromJson(json);
+    Map<String, dynamic> json,
+  ) => _$RunStepDetailsToolCallsFileSearchRankingOptionsObjectFromJson(json);
 
   /// List of all property names of schema
   static const List<String> propertyNames = ['ranker', 'score_threshold'];
@@ -48,9 +48,6 @@ abstract class RunStepDetailsToolCallsFileSearchRankingOptionsObject
 
   /// Map representation of object (not serialized)
   Map<String, dynamic> toMap() {
-    return {
-      'ranker': ranker,
-      'score_threshold': scoreThreshold,
-    };
+    return {'ranker': ranker, 'score_threshold': scoreThreshold};
   }
 }

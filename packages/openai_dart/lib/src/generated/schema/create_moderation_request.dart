@@ -20,9 +20,7 @@ abstract class CreateModerationRequest with _$CreateModerationRequest {
     /// available models [here](https://platform.openai.com//docs/models/moderation).
     @_ModerationModelConverter()
     @JsonKey(includeIfNull: false)
-    @Default(
-      ModerationModelString('omni-moderation-latest'),
-    )
+    @Default(ModerationModelString('omni-moderation-latest'))
     ModerationModel? model,
 
     /// Input (or inputs) to classify. Can be a single string, an array of strings, or
@@ -44,10 +42,7 @@ abstract class CreateModerationRequest with _$CreateModerationRequest {
 
   /// Map representation of object (not serialized)
   Map<String, dynamic> toMap() {
-    return {
-      'model': model,
-      'input': input,
-    };
+    return {'model': model, 'input': input};
   }
 }
 
@@ -79,14 +74,11 @@ sealed class ModerationModel with _$ModerationModel {
   const ModerationModel._();
 
   /// Available moderation models. Mind that the list may not be exhaustive nor up-to-date.
-  const factory ModerationModel.model(
-    ModerationModels value,
-  ) = ModerationModelEnumeration;
+  const factory ModerationModel.model(ModerationModels value) =
+      ModerationModelEnumeration;
 
   /// The ID of the model to use for this request.
-  const factory ModerationModel.modelId(
-    String value,
-  ) = ModerationModelString;
+  const factory ModerationModel.modelId(String value) = ModerationModelString;
 
   /// Object construction from a JSON representation
   factory ModerationModel.fromJson(Map<String, dynamic> json) =>
@@ -143,14 +135,11 @@ sealed class ModerationInput with _$ModerationInput {
   ) = ModerationInputListModerationInputObject;
 
   /// An array of strings to classify for moderation.
-  const factory ModerationInput.listString(
-    List<String> value,
-  ) = ModerationInputListString;
+  const factory ModerationInput.listString(List<String> value) =
+      ModerationInputListString;
 
   /// A string of text to classify for moderation.
-  const factory ModerationInput.string(
-    String value,
-  ) = ModerationInputString;
+  const factory ModerationInput.string(String value) = ModerationInputString;
 
   /// Object construction from a JSON representation
   factory ModerationInput.fromJson(Map<String, dynamic> json) =>
@@ -165,9 +154,13 @@ class _ModerationInputConverter
   @override
   ModerationInput fromJson(Object? data) {
     if (data is List && data.every((item) => item is Map)) {
-      return ModerationInputListModerationInputObject(data
-          .map((i) => ModerationInputObject.fromJson(i as Map<String, dynamic>))
-          .toList(growable: false));
+      return ModerationInputListModerationInputObject(
+        data
+            .map(
+              (i) => ModerationInputObject.fromJson(i as Map<String, dynamic>),
+            )
+            .toList(growable: false),
+      );
     }
     if (data is List && data.every((item) => item is String)) {
       return ModerationInputListString(data.cast());
@@ -175,9 +168,7 @@ class _ModerationInputConverter
     if (data is String) {
       return ModerationInputString(data);
     }
-    throw Exception(
-      'Unexpected value for ModerationInput: $data',
-    );
+    throw Exception('Unexpected value for ModerationInput: $data');
   }
 
   @override

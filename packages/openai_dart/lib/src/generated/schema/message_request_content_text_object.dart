@@ -37,9 +37,6 @@ abstract class MessageRequestContentTextObject
 
   /// Map representation of object (not serialized)
   Map<String, dynamic> toMap() {
-    return {
-      'type': type,
-      'text': text,
-    };
+    return {'type': type, 'text': text};
   }
 }

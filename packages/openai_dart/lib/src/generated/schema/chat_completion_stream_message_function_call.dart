@@ -25,8 +25,8 @@ abstract class ChatCompletionStreamMessageFunctionCall
 
   /// Object construction from a JSON representation
   factory ChatCompletionStreamMessageFunctionCall.fromJson(
-          Map<String, dynamic> json) =>
-      _$ChatCompletionStreamMessageFunctionCallFromJson(json);
+    Map<String, dynamic> json,
+  ) => _$ChatCompletionStreamMessageFunctionCallFromJson(json);
 
   /// List of all property names of schema
   static const List<String> propertyNames = ['name', 'arguments'];
@@ -38,9 +38,6 @@ abstract class ChatCompletionStreamMessageFunctionCall
 
   /// Map representation of object (not serialized)
   Map<String, dynamic> toMap() {
-    return {
-      'name': name,
-      'arguments': arguments,
-    };
+    return {'name': name, 'arguments': arguments};
   }
 }

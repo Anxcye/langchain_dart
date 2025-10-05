@@ -88,7 +88,7 @@ abstract class RunStepObject with _$RunStepObject {
     'failed_at',
     'completed_at',
     'metadata',
-    'usage'
+    'usage',
   ];
 
   /// Perform validations on the schema property values
@@ -191,10 +191,7 @@ abstract class RunStepLastError with _$RunStepLastError {
 
   /// Map representation of object (not serialized)
   Map<String, dynamic> toMap() {
-    return {
-      'code': code,
-      'message': message,
-    };
+    return {'code': code, 'message': message};
   }
 }
 

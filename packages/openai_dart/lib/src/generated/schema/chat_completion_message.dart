@@ -189,14 +189,13 @@ sealed class ChatCompletionDeveloperMessageContent
   ) = ChatCompletionDeveloperMessageContentParts;
 
   /// The text contents of the developer message.
-  const factory ChatCompletionDeveloperMessageContent.text(
-    String value,
-  ) = ChatCompletionDeveloperMessageContentString;
+  const factory ChatCompletionDeveloperMessageContent.text(String value) =
+      ChatCompletionDeveloperMessageContentString;
 
   /// Object construction from a JSON representation
   factory ChatCompletionDeveloperMessageContent.fromJson(
-          Map<String, dynamic> json) =>
-      _$ChatCompletionDeveloperMessageContentFromJson(json);
+    Map<String, dynamic> json,
+  ) => _$ChatCompletionDeveloperMessageContentFromJson(json);
 }
 
 /// Custom JSON converter for [ChatCompletionDeveloperMessageContent]
@@ -207,10 +206,15 @@ class _ChatCompletionDeveloperMessageContentConverter
   @override
   ChatCompletionDeveloperMessageContent fromJson(Object? data) {
     if (data is List && data.every((item) => item is Map)) {
-      return ChatCompletionDeveloperMessageContentParts(data
-          .map((i) => ChatCompletionMessageContentPart.fromJson(
-              i as Map<String, dynamic>))
-          .toList(growable: false));
+      return ChatCompletionDeveloperMessageContentParts(
+        data
+            .map(
+              (i) => ChatCompletionMessageContentPart.fromJson(
+                i as Map<String, dynamic>,
+              ),
+            )
+            .toList(growable: false),
+      );
     }
     if (data is String) {
       return ChatCompletionDeveloperMessageContentString(data);
@@ -247,14 +251,13 @@ sealed class ChatCompletionUserMessageContent
   ) = ChatCompletionMessageContentParts;
 
   /// The text contents of the user message.
-  const factory ChatCompletionUserMessageContent.string(
-    String value,
-  ) = ChatCompletionUserMessageContentString;
+  const factory ChatCompletionUserMessageContent.string(String value) =
+      ChatCompletionUserMessageContentString;
 
   /// Object construction from a JSON representation
   factory ChatCompletionUserMessageContent.fromJson(
-          Map<String, dynamic> json) =>
-      _$ChatCompletionUserMessageContentFromJson(json);
+    Map<String, dynamic> json,
+  ) => _$ChatCompletionUserMessageContentFromJson(json);
 }
 
 /// Custom JSON converter for [ChatCompletionUserMessageContent]
@@ -265,10 +268,15 @@ class _ChatCompletionUserMessageContentConverter
   @override
   ChatCompletionUserMessageContent fromJson(Object? data) {
     if (data is List && data.every((item) => item is Map)) {
-      return ChatCompletionMessageContentParts(data
-          .map((i) => ChatCompletionMessageContentPart.fromJson(
-              i as Map<String, dynamic>))
-          .toList(growable: false));
+      return ChatCompletionMessageContentParts(
+        data
+            .map(
+              (i) => ChatCompletionMessageContentPart.fromJson(
+                i as Map<String, dynamic>,
+              ),
+            )
+            .toList(growable: false),
+      );
     }
     if (data is String) {
       return ChatCompletionUserMessageContentString(data);
@@ -316,15 +324,15 @@ abstract class ChatCompletionAssistantMessageAudio
 
   /// Object construction from a JSON representation
   factory ChatCompletionAssistantMessageAudio.fromJson(
-          Map<String, dynamic> json) =>
-      _$ChatCompletionAssistantMessageAudioFromJson(json);
+    Map<String, dynamic> json,
+  ) => _$ChatCompletionAssistantMessageAudioFromJson(json);
 
   /// List of all property names of schema
   static const List<String> propertyNames = [
     'id',
     'expires_at',
     'data',
-    'transcript'
+    'transcript',
   ];
 
   /// Perform validations on the schema property values

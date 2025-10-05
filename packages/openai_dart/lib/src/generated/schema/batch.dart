@@ -104,7 +104,7 @@ abstract class Batch with _$Batch {
     'cancelling_at',
     'cancelled_at',
     'request_counts',
-    'metadata'
+    'metadata',
   ];
 
   /// Perform validations on the schema property values
@@ -181,10 +181,7 @@ abstract class BatchErrors with _$BatchErrors {
 
   /// Map representation of object (not serialized)
   Map<String, dynamic> toMap() {
-    return {
-      'object': object,
-      'data': data,
-    };
+    return {'object': object, 'data': data};
   }
 }
 
@@ -247,11 +244,7 @@ abstract class BatchRequestCounts with _$BatchRequestCounts {
 
   /// Map representation of object (not serialized)
   Map<String, dynamic> toMap() {
-    return {
-      'total': total,
-      'completed': completed,
-      'failed': failed,
-    };
+    return {'total': total, 'completed': completed, 'failed': failed};
   }
 }
 
@@ -288,7 +281,7 @@ abstract class BatchErrorsDataInner with _$BatchErrorsDataInner {
     'code',
     'message',
     'param',
-    'line'
+    'line',
   ];
 
   /// Perform validations on the schema property values
@@ -298,11 +291,6 @@ abstract class BatchErrorsDataInner with _$BatchErrorsDataInner {
 
   /// Map representation of object (not serialized)
   Map<String, dynamic> toMap() {
-    return {
-      'code': code,
-      'message': message,
-      'param': param,
-      'line': line,
-    };
+    return {'code': code, 'message': message, 'param': param, 'line': line};
   }
 }

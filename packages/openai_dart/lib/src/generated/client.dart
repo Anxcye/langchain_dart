@@ -74,15 +74,15 @@ class OpenAIClient {
     this.headers = const {},
     this.queryParams = const {},
     http.Client? client,
-  })  : assert(
-          baseUrl == null || baseUrl.startsWith('http'),
-          'baseUrl must start with http',
-        ),
-        assert(
-          baseUrl == null || !baseUrl.endsWith('/'),
-          'baseUrl must not end with /',
-        ),
-        client = RetryClient(client ?? http.Client());
+  }) : assert(
+         baseUrl == null || baseUrl.startsWith('http'),
+         'baseUrl must start with http',
+       ),
+       assert(
+         baseUrl == null || !baseUrl.endsWith('/'),
+         'baseUrl must not end with /',
+       ),
+       client = RetryClient(client ?? http.Client());
 
   /// Override base URL (default: server url defined in spec)
   final String? baseUrl;
@@ -399,6 +399,7 @@ class OpenAIClient {
       isMultipart: false,
       requestType: '',
       responseType: 'application/json',
+
       queryParams: {
         if (model != null) 'model': model,
         if (metadata != null) 'metadata': metadata,
@@ -521,10 +522,8 @@ class OpenAIClient {
       isMultipart: false,
       requestType: '',
       responseType: 'application/json',
-      queryParams: {
-        if (after != null) 'after': after,
-        'limit': limit,
-      },
+
+      queryParams: {if (after != null) 'after': after, 'limit': limit},
     );
     return ListPaginatedFineTuningJobsResponse.fromJson(_jsonDecode(r));
   }
@@ -614,10 +613,8 @@ class OpenAIClient {
       isMultipart: false,
       requestType: '',
       responseType: 'application/json',
-      queryParams: {
-        if (after != null) 'after': after,
-        'limit': limit,
-      },
+
+      queryParams: {if (after != null) 'after': after, 'limit': limit},
     );
     return ListFineTuningJobEventsResponse.fromJson(_jsonDecode(r));
   }
@@ -674,10 +671,8 @@ class OpenAIClient {
       isMultipart: false,
       requestType: '',
       responseType: 'application/json',
-      queryParams: {
-        if (after != null) 'after': after,
-        'limit': limit,
-      },
+
+      queryParams: {if (after != null) 'after': after, 'limit': limit},
     );
     return ListFineTuningJobCheckpointsResponse.fromJson(_jsonDecode(r));
   }
@@ -742,9 +737,7 @@ class OpenAIClient {
   /// `model`: The ID of the model to use for this request
   ///
   /// `GET` `https://api.openai.com/v1/models/{model}`
-  Future<Model> retrieveModel({
-    required String model,
-  }) async {
+  Future<Model> retrieveModel({required String model}) async {
     final r = await makeRequest(
       baseUrl: 'https://api.openai.com/v1',
       path: '/models/$model',
@@ -767,9 +760,7 @@ class OpenAIClient {
   /// `model`: The model to delete
   ///
   /// `DELETE` `https://api.openai.com/v1/models/{model}`
-  Future<DeleteModelResponse> deleteModel({
-    required String model,
-  }) async {
+  Future<DeleteModelResponse> deleteModel({required String model}) async {
     final r = await makeRequest(
       baseUrl: 'https://api.openai.com/v1',
       path: '/models/$model',
@@ -838,6 +829,7 @@ class OpenAIClient {
       isMultipart: false,
       requestType: '',
       responseType: 'application/json',
+
       queryParams: {
         'limit': limit,
         'order': order,
@@ -885,9 +877,7 @@ class OpenAIClient {
   /// `assistantId`: The ID of the assistant to retrieve.
   ///
   /// `GET` `https://api.openai.com/v1/assistants/{assistant_id}`
-  Future<AssistantObject> getAssistant({
-    required String assistantId,
-  }) async {
+  Future<AssistantObject> getAssistant({required String assistantId}) async {
     final r = await makeRequest(
       baseUrl: 'https://api.openai.com/v1',
       path: '/assistants/$assistantId',
@@ -964,9 +954,7 @@ class OpenAIClient {
   /// `request`: Request object for the Create thread endpoint.
   ///
   /// `POST` `https://api.openai.com/v1/threads`
-  Future<ThreadObject> createThread({
-    CreateThreadRequest? request,
-  }) async {
+  Future<ThreadObject> createThread({CreateThreadRequest? request}) async {
     final r = await makeRequest(
       baseUrl: 'https://api.openai.com/v1',
       path: '/threads',
@@ -988,9 +976,7 @@ class OpenAIClient {
   /// `threadId`: The ID of the thread to retrieve.
   ///
   /// `GET` `https://api.openai.com/v1/threads/{thread_id}`
-  Future<ThreadObject> getThread({
-    required String threadId,
-  }) async {
+  Future<ThreadObject> getThread({required String threadId}) async {
     final r = await makeRequest(
       baseUrl: 'https://api.openai.com/v1',
       path: '/threads/$threadId',
@@ -1040,9 +1026,7 @@ class OpenAIClient {
   /// `threadId`: The ID of the thread to delete.
   ///
   /// `DELETE` `https://api.openai.com/v1/threads/{thread_id}`
-  Future<DeleteThreadResponse> deleteThread({
-    required String threadId,
-  }) async {
+  Future<DeleteThreadResponse> deleteThread({required String threadId}) async {
     final r = await makeRequest(
       baseUrl: 'https://api.openai.com/v1',
       path: '/threads/$threadId',
@@ -1090,6 +1074,7 @@ class OpenAIClient {
       isMultipart: false,
       requestType: '',
       responseType: 'application/json',
+
       queryParams: {
         'limit': limit,
         'order': order,
@@ -1277,6 +1262,7 @@ class OpenAIClient {
       isMultipart: false,
       requestType: '',
       responseType: 'application/json',
+
       queryParams: {
         'limit': limit,
         'order': order,
@@ -1315,9 +1301,8 @@ class OpenAIClient {
       requestType: 'application/json',
       responseType: 'application/json',
       body: request,
-      queryParams: {
-        if (include != null) 'include': include,
-      },
+
+      queryParams: {if (include != null) 'include': include},
     );
     return RunObject.fromJson(_jsonDecode(r));
   }
@@ -1483,6 +1468,7 @@ class OpenAIClient {
       isMultipart: false,
       requestType: '',
       responseType: 'application/json',
+
       queryParams: {
         'limit': limit,
         'order': order,
@@ -1524,9 +1510,8 @@ class OpenAIClient {
       isMultipart: false,
       requestType: '',
       responseType: 'application/json',
-      queryParams: {
-        if (include != null) 'include': include,
-      },
+
+      queryParams: {if (include != null) 'include': include},
     );
     return RunStepObject.fromJson(_jsonDecode(r));
   }
@@ -1561,6 +1546,7 @@ class OpenAIClient {
       isMultipart: false,
       requestType: '',
       responseType: 'application/json',
+
       queryParams: {
         'limit': limit,
         'order': order,
@@ -1712,6 +1698,7 @@ class OpenAIClient {
       isMultipart: false,
       requestType: '',
       responseType: 'application/json',
+
       queryParams: {
         'limit': limit,
         'order': order,
@@ -1936,6 +1923,7 @@ class OpenAIClient {
       isMultipart: false,
       requestType: '',
       responseType: 'application/json',
+
       queryParams: {
         'limit': limit,
         'order': order,
@@ -1971,10 +1959,8 @@ class OpenAIClient {
       isMultipart: false,
       requestType: '',
       responseType: 'application/json',
-      queryParams: {
-        if (after != null) 'after': after,
-        'limit': limit,
-      },
+
+      queryParams: {if (after != null) 'after': after, 'limit': limit},
     );
     return ListBatchesResponse.fromJson(_jsonDecode(r));
   }
@@ -1990,9 +1976,7 @@ class OpenAIClient {
   /// `request`: Represents a request to create a new batch.
   ///
   /// `POST` `https://api.openai.com/v1/batches`
-  Future<Batch> createBatch({
-    required CreateBatchRequest request,
-  }) async {
+  Future<Batch> createBatch({required CreateBatchRequest request}) async {
     final r = await makeRequest(
       baseUrl: 'https://api.openai.com/v1',
       path: '/batches',
@@ -2016,9 +2000,7 @@ class OpenAIClient {
   /// `batchId`: The ID of the batch to retrieve.
   ///
   /// `GET` `https://api.openai.com/v1/batches/{batch_id}`
-  Future<Batch> retrieveBatch({
-    required String batchId,
-  }) async {
+  Future<Batch> retrieveBatch({required String batchId}) async {
     final r = await makeRequest(
       baseUrl: 'https://api.openai.com/v1',
       path: '/batches/$batchId',
@@ -2042,9 +2024,7 @@ class OpenAIClient {
   /// `batchId`: The ID of the batch to cancel.
   ///
   /// `POST` `https://api.openai.com/v1/batches/{batch_id}/cancel`
-  Future<Batch> cancelBatch({
-    required String batchId,
-  }) async {
+  Future<Batch> cancelBatch({required String batchId}) async {
     final r = await makeRequest(
       baseUrl: 'https://api.openai.com/v1',
       path: '/batches/$batchId/cancel',

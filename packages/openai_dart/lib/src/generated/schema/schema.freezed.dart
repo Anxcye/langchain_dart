@@ -8675,7 +8675,7 @@ mixin _$CreateChatCompletionResponse {
 ///
 /// Can be used in conjunction with the `seed` request parameter to understand when backend changes have been made that might impact determinism.
 @JsonKey(name: 'system_fingerprint', includeIfNull: false) String? get systemFingerprint;/// The object type, which is always `chat.completion`.
- String get object;/// Usage statistics for the completion request.
+@JsonKey(includeIfNull: false) String? get object;/// Usage statistics for the completion request.
 @JsonKey(includeIfNull: false) CompletionUsage? get usage;
 /// Create a copy of CreateChatCompletionResponse
 /// with the given fields replaced by the non-null parameter values.
@@ -8709,7 +8709,7 @@ abstract mixin class $CreateChatCompletionResponseCopyWith<$Res>  {
   factory $CreateChatCompletionResponseCopyWith(CreateChatCompletionResponse value, $Res Function(CreateChatCompletionResponse) _then) = _$CreateChatCompletionResponseCopyWithImpl;
 @useResult
 $Res call({
-@JsonKey(includeIfNull: false) String? id, List<ChatCompletionResponseChoice> choices, int created, String model,@JsonKey(name: 'service_tier', includeIfNull: false, unknownEnumValue: JsonKey.nullForUndefinedEnumValue) ServiceTier? serviceTier,@JsonKey(name: 'system_fingerprint', includeIfNull: false) String? systemFingerprint, String object,@JsonKey(includeIfNull: false) CompletionUsage? usage
+@JsonKey(includeIfNull: false) String? id, List<ChatCompletionResponseChoice> choices, int created, String model,@JsonKey(name: 'service_tier', includeIfNull: false, unknownEnumValue: JsonKey.nullForUndefinedEnumValue) ServiceTier? serviceTier,@JsonKey(name: 'system_fingerprint', includeIfNull: false) String? systemFingerprint,@JsonKey(includeIfNull: false) String? object,@JsonKey(includeIfNull: false) CompletionUsage? usage
 });
 
 
@@ -8726,7 +8726,7 @@ class _$CreateChatCompletionResponseCopyWithImpl<$Res>
 
 /// Create a copy of CreateChatCompletionResponse
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? id = freezed,Object? choices = null,Object? created = null,Object? model = null,Object? serviceTier = freezed,Object? systemFingerprint = freezed,Object? object = null,Object? usage = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? id = freezed,Object? choices = null,Object? created = null,Object? model = null,Object? serviceTier = freezed,Object? systemFingerprint = freezed,Object? object = freezed,Object? usage = freezed,}) {
   return _then(_self.copyWith(
 id: freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String?,choices: null == choices ? _self.choices : choices // ignore: cast_nullable_to_non_nullable
@@ -8734,8 +8734,8 @@ as List<ChatCompletionResponseChoice>,created: null == created ? _self.created :
 as int,model: null == model ? _self.model : model // ignore: cast_nullable_to_non_nullable
 as String,serviceTier: freezed == serviceTier ? _self.serviceTier : serviceTier // ignore: cast_nullable_to_non_nullable
 as ServiceTier?,systemFingerprint: freezed == systemFingerprint ? _self.systemFingerprint : systemFingerprint // ignore: cast_nullable_to_non_nullable
-as String?,object: null == object ? _self.object : object // ignore: cast_nullable_to_non_nullable
-as String,usage: freezed == usage ? _self.usage : usage // ignore: cast_nullable_to_non_nullable
+as String?,object: freezed == object ? _self.object : object // ignore: cast_nullable_to_non_nullable
+as String?,usage: freezed == usage ? _self.usage : usage // ignore: cast_nullable_to_non_nullable
 as CompletionUsage?,
   ));
 }
@@ -8833,7 +8833,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(includeIfNull: false)  String? id,  List<ChatCompletionResponseChoice> choices,  int created,  String model, @JsonKey(name: 'service_tier', includeIfNull: false, unknownEnumValue: JsonKey.nullForUndefinedEnumValue)  ServiceTier? serviceTier, @JsonKey(name: 'system_fingerprint', includeIfNull: false)  String? systemFingerprint,  String object, @JsonKey(includeIfNull: false)  CompletionUsage? usage)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(includeIfNull: false)  String? id,  List<ChatCompletionResponseChoice> choices,  int created,  String model, @JsonKey(name: 'service_tier', includeIfNull: false, unknownEnumValue: JsonKey.nullForUndefinedEnumValue)  ServiceTier? serviceTier, @JsonKey(name: 'system_fingerprint', includeIfNull: false)  String? systemFingerprint, @JsonKey(includeIfNull: false)  String? object, @JsonKey(includeIfNull: false)  CompletionUsage? usage)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _CreateChatCompletionResponse() when $default != null:
 return $default(_that.id,_that.choices,_that.created,_that.model,_that.serviceTier,_that.systemFingerprint,_that.object,_that.usage);case _:
@@ -8854,7 +8854,7 @@ return $default(_that.id,_that.choices,_that.created,_that.model,_that.serviceTi
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(includeIfNull: false)  String? id,  List<ChatCompletionResponseChoice> choices,  int created,  String model, @JsonKey(name: 'service_tier', includeIfNull: false, unknownEnumValue: JsonKey.nullForUndefinedEnumValue)  ServiceTier? serviceTier, @JsonKey(name: 'system_fingerprint', includeIfNull: false)  String? systemFingerprint,  String object, @JsonKey(includeIfNull: false)  CompletionUsage? usage)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(includeIfNull: false)  String? id,  List<ChatCompletionResponseChoice> choices,  int created,  String model, @JsonKey(name: 'service_tier', includeIfNull: false, unknownEnumValue: JsonKey.nullForUndefinedEnumValue)  ServiceTier? serviceTier, @JsonKey(name: 'system_fingerprint', includeIfNull: false)  String? systemFingerprint, @JsonKey(includeIfNull: false)  String? object, @JsonKey(includeIfNull: false)  CompletionUsage? usage)  $default,) {final _that = this;
 switch (_that) {
 case _CreateChatCompletionResponse():
 return $default(_that.id,_that.choices,_that.created,_that.model,_that.serviceTier,_that.systemFingerprint,_that.object,_that.usage);case _:
@@ -8874,7 +8874,7 @@ return $default(_that.id,_that.choices,_that.created,_that.model,_that.serviceTi
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(includeIfNull: false)  String? id,  List<ChatCompletionResponseChoice> choices,  int created,  String model, @JsonKey(name: 'service_tier', includeIfNull: false, unknownEnumValue: JsonKey.nullForUndefinedEnumValue)  ServiceTier? serviceTier, @JsonKey(name: 'system_fingerprint', includeIfNull: false)  String? systemFingerprint,  String object, @JsonKey(includeIfNull: false)  CompletionUsage? usage)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(includeIfNull: false)  String? id,  List<ChatCompletionResponseChoice> choices,  int created,  String model, @JsonKey(name: 'service_tier', includeIfNull: false, unknownEnumValue: JsonKey.nullForUndefinedEnumValue)  ServiceTier? serviceTier, @JsonKey(name: 'system_fingerprint', includeIfNull: false)  String? systemFingerprint, @JsonKey(includeIfNull: false)  String? object, @JsonKey(includeIfNull: false)  CompletionUsage? usage)?  $default,) {final _that = this;
 switch (_that) {
 case _CreateChatCompletionResponse() when $default != null:
 return $default(_that.id,_that.choices,_that.created,_that.model,_that.serviceTier,_that.systemFingerprint,_that.object,_that.usage);case _:
@@ -8889,7 +8889,7 @@ return $default(_that.id,_that.choices,_that.created,_that.model,_that.serviceTi
 @JsonSerializable()
 
 class _CreateChatCompletionResponse extends CreateChatCompletionResponse {
-  const _CreateChatCompletionResponse({@JsonKey(includeIfNull: false) this.id, required final  List<ChatCompletionResponseChoice> choices, required this.created, required this.model, @JsonKey(name: 'service_tier', includeIfNull: false, unknownEnumValue: JsonKey.nullForUndefinedEnumValue) this.serviceTier, @JsonKey(name: 'system_fingerprint', includeIfNull: false) this.systemFingerprint, required this.object, @JsonKey(includeIfNull: false) this.usage}): _choices = choices,super._();
+  const _CreateChatCompletionResponse({@JsonKey(includeIfNull: false) this.id, required final  List<ChatCompletionResponseChoice> choices, required this.created, required this.model, @JsonKey(name: 'service_tier', includeIfNull: false, unknownEnumValue: JsonKey.nullForUndefinedEnumValue) this.serviceTier, @JsonKey(name: 'system_fingerprint', includeIfNull: false) this.systemFingerprint, @JsonKey(includeIfNull: false) this.object = 'chat.completion', @JsonKey(includeIfNull: false) this.usage}): _choices = choices,super._();
   factory _CreateChatCompletionResponse.fromJson(Map<String, dynamic> json) => _$CreateChatCompletionResponseFromJson(json);
 
 /// A unique identifier for the chat completion.
@@ -8915,7 +8915,7 @@ class _CreateChatCompletionResponse extends CreateChatCompletionResponse {
 /// Can be used in conjunction with the `seed` request parameter to understand when backend changes have been made that might impact determinism.
 @override@JsonKey(name: 'system_fingerprint', includeIfNull: false) final  String? systemFingerprint;
 /// The object type, which is always `chat.completion`.
-@override final  String object;
+@override@JsonKey(includeIfNull: false) final  String? object;
 /// Usage statistics for the completion request.
 @override@JsonKey(includeIfNull: false) final  CompletionUsage? usage;
 
@@ -8952,7 +8952,7 @@ abstract mixin class _$CreateChatCompletionResponseCopyWith<$Res> implements $Cr
   factory _$CreateChatCompletionResponseCopyWith(_CreateChatCompletionResponse value, $Res Function(_CreateChatCompletionResponse) _then) = __$CreateChatCompletionResponseCopyWithImpl;
 @override @useResult
 $Res call({
-@JsonKey(includeIfNull: false) String? id, List<ChatCompletionResponseChoice> choices, int created, String model,@JsonKey(name: 'service_tier', includeIfNull: false, unknownEnumValue: JsonKey.nullForUndefinedEnumValue) ServiceTier? serviceTier,@JsonKey(name: 'system_fingerprint', includeIfNull: false) String? systemFingerprint, String object,@JsonKey(includeIfNull: false) CompletionUsage? usage
+@JsonKey(includeIfNull: false) String? id, List<ChatCompletionResponseChoice> choices, int created, String model,@JsonKey(name: 'service_tier', includeIfNull: false, unknownEnumValue: JsonKey.nullForUndefinedEnumValue) ServiceTier? serviceTier,@JsonKey(name: 'system_fingerprint', includeIfNull: false) String? systemFingerprint,@JsonKey(includeIfNull: false) String? object,@JsonKey(includeIfNull: false) CompletionUsage? usage
 });
 
 
@@ -8969,7 +8969,7 @@ class __$CreateChatCompletionResponseCopyWithImpl<$Res>
 
 /// Create a copy of CreateChatCompletionResponse
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? id = freezed,Object? choices = null,Object? created = null,Object? model = null,Object? serviceTier = freezed,Object? systemFingerprint = freezed,Object? object = null,Object? usage = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? id = freezed,Object? choices = null,Object? created = null,Object? model = null,Object? serviceTier = freezed,Object? systemFingerprint = freezed,Object? object = freezed,Object? usage = freezed,}) {
   return _then(_CreateChatCompletionResponse(
 id: freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String?,choices: null == choices ? _self._choices : choices // ignore: cast_nullable_to_non_nullable
@@ -8977,8 +8977,8 @@ as List<ChatCompletionResponseChoice>,created: null == created ? _self.created :
 as int,model: null == model ? _self.model : model // ignore: cast_nullable_to_non_nullable
 as String,serviceTier: freezed == serviceTier ? _self.serviceTier : serviceTier // ignore: cast_nullable_to_non_nullable
 as ServiceTier?,systemFingerprint: freezed == systemFingerprint ? _self.systemFingerprint : systemFingerprint // ignore: cast_nullable_to_non_nullable
-as String?,object: null == object ? _self.object : object // ignore: cast_nullable_to_non_nullable
-as String,usage: freezed == usage ? _self.usage : usage // ignore: cast_nullable_to_non_nullable
+as String?,object: freezed == object ? _self.object : object // ignore: cast_nullable_to_non_nullable
+as String?,usage: freezed == usage ? _self.usage : usage // ignore: cast_nullable_to_non_nullable
 as CompletionUsage?,
   ));
 }
@@ -10405,7 +10405,7 @@ return $default(_that.id,_that.choices,_that.created,_that.model,_that.serviceTi
 @JsonSerializable()
 
 class _CreateChatCompletionStreamResponse extends CreateChatCompletionStreamResponse {
-  const _CreateChatCompletionStreamResponse({@JsonKey(includeIfNull: false) this.id, @JsonKey(includeIfNull: false) final  List<ChatCompletionStreamResponseChoice>? choices, @JsonKey(includeIfNull: false) this.created, @JsonKey(includeIfNull: false) this.model, @JsonKey(name: 'service_tier', includeIfNull: false, unknownEnumValue: JsonKey.nullForUndefinedEnumValue) this.serviceTier, @JsonKey(name: 'system_fingerprint', includeIfNull: false) this.systemFingerprint, @JsonKey(includeIfNull: false) this.object, @JsonKey(includeIfNull: false) this.usage}): _choices = choices,super._();
+  const _CreateChatCompletionStreamResponse({@JsonKey(includeIfNull: false) this.id, @JsonKey(includeIfNull: false) final  List<ChatCompletionStreamResponseChoice>? choices, @JsonKey(includeIfNull: false) this.created, @JsonKey(includeIfNull: false) this.model, @JsonKey(name: 'service_tier', includeIfNull: false, unknownEnumValue: JsonKey.nullForUndefinedEnumValue) this.serviceTier, @JsonKey(name: 'system_fingerprint', includeIfNull: false) this.systemFingerprint, @JsonKey(includeIfNull: false) this.object = 'chat.completion.chunk', @JsonKey(includeIfNull: false) this.usage}): _choices = choices,super._();
   factory _CreateChatCompletionStreamResponse.fromJson(Map<String, dynamic> json) => _$CreateChatCompletionStreamResponseFromJson(json);
 
 /// A unique identifier for the chat completion. Each chunk has the same ID.

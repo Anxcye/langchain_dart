@@ -26,7 +26,8 @@ abstract class RunStepDeltaStepDetailsToolCallsCodeObjectCodeInterpreter
 
   /// Object construction from a JSON representation
   factory RunStepDeltaStepDetailsToolCallsCodeObjectCodeInterpreter.fromJson(
-          Map<String, dynamic> json) =>
+    Map<String, dynamic> json,
+  ) =>
       _$RunStepDeltaStepDetailsToolCallsCodeObjectCodeInterpreterFromJson(json);
 
   /// List of all property names of schema
@@ -39,9 +40,6 @@ abstract class RunStepDeltaStepDetailsToolCallsCodeObjectCodeInterpreter
 
   /// Map representation of object (not serialized)
   Map<String, dynamic> toMap() {
-    return {
-      'input': input,
-      'outputs': outputs,
-    };
+    return {'input': input, 'outputs': outputs};
   }
 }

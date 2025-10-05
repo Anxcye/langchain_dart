@@ -25,8 +25,8 @@ abstract class RunStepDetailsToolCallsCodeObjectCodeInterpreter
 
   /// Object construction from a JSON representation
   factory RunStepDetailsToolCallsCodeObjectCodeInterpreter.fromJson(
-          Map<String, dynamic> json) =>
-      _$RunStepDetailsToolCallsCodeObjectCodeInterpreterFromJson(json);
+    Map<String, dynamic> json,
+  ) => _$RunStepDetailsToolCallsCodeObjectCodeInterpreterFromJson(json);
 
   /// List of all property names of schema
   static const List<String> propertyNames = ['input', 'outputs'];
@@ -38,9 +38,6 @@ abstract class RunStepDetailsToolCallsCodeObjectCodeInterpreter
 
   /// Map representation of object (not serialized)
   Map<String, dynamic> toMap() {
-    return {
-      'input': input,
-      'outputs': outputs,
-    };
+    return {'input': input, 'outputs': outputs};
   }
 }

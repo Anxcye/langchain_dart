@@ -853,7 +853,7 @@ _CreateChatCompletionResponse _$CreateChatCompletionResponseFromJson(
     unknownValue: JsonKey.nullForUndefinedEnumValue,
   ),
   systemFingerprint: json['system_fingerprint'] as String?,
-  object: json['object'] as String,
+  object: json['object'] as String? ?? 'chat.completion',
   usage: json['usage'] == null
       ? null
       : CompletionUsage.fromJson(json['usage'] as Map<String, dynamic>),
@@ -868,7 +868,7 @@ Map<String, dynamic> _$CreateChatCompletionResponseToJson(
   'model': instance.model,
   'service_tier': ?_$ServiceTierEnumMap[instance.serviceTier],
   'system_fingerprint': ?instance.systemFingerprint,
-  'object': instance.object,
+  'object': ?instance.object,
   'usage': ?instance.usage?.toJson(),
 };
 
@@ -998,7 +998,7 @@ _$CreateChatCompletionStreamResponseFromJson(Map<String, dynamic> json) =>
         unknownValue: JsonKey.nullForUndefinedEnumValue,
       ),
       systemFingerprint: json['system_fingerprint'] as String?,
-      object: json['object'] as String?,
+      object: json['object'] as String? ?? 'chat.completion.chunk',
       usage: json['usage'] == null
           ? null
           : CompletionUsage.fromJson(json['usage'] as Map<String, dynamic>),

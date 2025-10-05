@@ -46,7 +46,9 @@ abstract class CreateChatCompletionStreamResponse
     String? systemFingerprint,
 
     /// The object type, which is always `chat.completion.chunk`.
-    @JsonKey(includeIfNull: false) String? object,
+    @JsonKey(includeIfNull: false)
+    @Default('chat.completion.chunk')
+    String? object,
 
     /// Usage statistics for the completion request.
     @JsonKey(includeIfNull: false) CompletionUsage? usage,
@@ -54,8 +56,8 @@ abstract class CreateChatCompletionStreamResponse
 
   /// Object construction from a JSON representation
   factory CreateChatCompletionStreamResponse.fromJson(
-          Map<String, dynamic> json) =>
-      _$CreateChatCompletionStreamResponseFromJson(json);
+    Map<String, dynamic> json,
+  ) => _$CreateChatCompletionStreamResponseFromJson(json);
 
   /// List of all property names of schema
   static const List<String> propertyNames = [
@@ -66,7 +68,7 @@ abstract class CreateChatCompletionStreamResponse
     'service_tier',
     'system_fingerprint',
     'object',
-    'usage'
+    'usage',
   ];
 
   /// Perform validations on the schema property values

@@ -36,7 +36,7 @@ abstract class UpdateVectorStoreRequest with _$UpdateVectorStoreRequest {
   static const List<String> propertyNames = [
     'name',
     'expires_after',
-    'metadata'
+    'metadata',
   ];
 
   /// Perform validations on the schema property values
@@ -46,10 +46,6 @@ abstract class UpdateVectorStoreRequest with _$UpdateVectorStoreRequest {
 
   /// Map representation of object (not serialized)
   Map<String, dynamic> toMap() {
-    return {
-      'name': name,
-      'expires_after': expiresAfter,
-      'metadata': metadata,
-    };
+    return {'name': name, 'expires_after': expiresAfter, 'metadata': metadata};
   }
 }

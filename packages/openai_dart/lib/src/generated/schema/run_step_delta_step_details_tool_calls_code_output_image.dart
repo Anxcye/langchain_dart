@@ -22,8 +22,8 @@ abstract class RunStepDeltaStepDetailsToolCallsCodeOutputImage
 
   /// Object construction from a JSON representation
   factory RunStepDeltaStepDetailsToolCallsCodeOutputImage.fromJson(
-          Map<String, dynamic> json) =>
-      _$RunStepDeltaStepDetailsToolCallsCodeOutputImageFromJson(json);
+    Map<String, dynamic> json,
+  ) => _$RunStepDeltaStepDetailsToolCallsCodeOutputImageFromJson(json);
 
   /// List of all property names of schema
   static const List<String> propertyNames = ['file_id'];
@@ -35,8 +35,6 @@ abstract class RunStepDeltaStepDetailsToolCallsCodeOutputImage
 
   /// Map representation of object (not serialized)
   Map<String, dynamic> toMap() {
-    return {
-      'file_id': fileId,
-    };
+    return {'file_id': fileId};
   }
 }

@@ -25,8 +25,8 @@ abstract class RunStepDetailsToolCallsFileSearchResultContent
 
   /// Object construction from a JSON representation
   factory RunStepDetailsToolCallsFileSearchResultContent.fromJson(
-          Map<String, dynamic> json) =>
-      _$RunStepDetailsToolCallsFileSearchResultContentFromJson(json);
+    Map<String, dynamic> json,
+  ) => _$RunStepDetailsToolCallsFileSearchResultContentFromJson(json);
 
   /// List of all property names of schema
   static const List<String> propertyNames = ['type', 'text'];
@@ -38,9 +38,6 @@ abstract class RunStepDetailsToolCallsFileSearchResultContent
 
   /// Map representation of object (not serialized)
   Map<String, dynamic> toMap() {
-    return {
-      'type': type,
-      'text': text,
-    };
+    return {'type': type, 'text': text};
   }
 }

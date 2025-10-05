@@ -92,7 +92,7 @@ abstract class CreateAssistantRequest with _$CreateAssistantRequest {
     'metadata',
     'temperature',
     'top_p',
-    'response_format'
+    'response_format',
   ];
 
   /// Validation constants
@@ -299,14 +299,11 @@ sealed class AssistantModel with _$AssistantModel {
   const AssistantModel._();
 
   /// Available assistant models. Mind that the list may not be exhaustive nor up-to-date.
-  const factory AssistantModel.model(
-    AssistantModels value,
-  ) = AssistantModelEnumeration;
+  const factory AssistantModel.model(AssistantModels value) =
+      AssistantModelEnumeration;
 
   /// The ID of the model to use.
-  const factory AssistantModel.modelId(
-    String value,
-  ) = AssistantModelString;
+  const factory AssistantModel.modelId(String value) = AssistantModelString;
 
   /// Object construction from a JSON representation
   factory AssistantModel.fromJson(Map<String, dynamic> json) =>
@@ -330,9 +327,7 @@ class _AssistantModelConverter
     if (data is String) {
       return AssistantModelString(data);
     }
-    throw Exception(
-      'Unexpected value for AssistantModel: $data',
-    );
+    throw Exception('Unexpected value for AssistantModel: $data');
   }
 
   @override
@@ -392,8 +387,8 @@ sealed class CreateAssistantRequestResponseFormat
 
   /// Object construction from a JSON representation
   factory CreateAssistantRequestResponseFormat.fromJson(
-          Map<String, dynamic> json) =>
-      _$CreateAssistantRequestResponseFormatFromJson(json);
+    Map<String, dynamic> json,
+  ) => _$CreateAssistantRequestResponseFormatFromJson(json);
 }
 
 /// Custom JSON converter for [CreateAssistantRequestResponseFormat]
@@ -410,9 +405,9 @@ class _CreateAssistantRequestResponseFormatConverter
         _$CreateAssistantResponseFormatModeEnumMap.values.contains(data)) {
       return CreateAssistantRequestResponseFormatEnumeration(
         _$CreateAssistantResponseFormatModeEnumMap.keys.elementAt(
-          _$CreateAssistantResponseFormatModeEnumMap.values
-              .toList()
-              .indexOf(data),
+          _$CreateAssistantResponseFormatModeEnumMap.values.toList().indexOf(
+            data,
+          ),
         ),
       );
     }

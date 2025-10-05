@@ -78,8 +78,8 @@ abstract class ModerationInputObjectImageUrlImageUrl
 
   /// Object construction from a JSON representation
   factory ModerationInputObjectImageUrlImageUrl.fromJson(
-          Map<String, dynamic> json) =>
-      _$ModerationInputObjectImageUrlImageUrlFromJson(json);
+    Map<String, dynamic> json,
+  ) => _$ModerationInputObjectImageUrlImageUrlFromJson(json);
 
   /// List of all property names of schema
   static const List<String> propertyNames = ['url'];
@@ -91,8 +91,6 @@ abstract class ModerationInputObjectImageUrlImageUrl
 
   /// Map representation of object (not serialized)
   Map<String, dynamic> toMap() {
-    return {
-      'url': url,
-    };
+    return {'url': url};
   }
 }

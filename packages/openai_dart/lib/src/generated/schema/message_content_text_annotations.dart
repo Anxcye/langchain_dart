@@ -85,8 +85,8 @@ abstract class MessageContentTextAnnotationsFilePath
 
   /// Object construction from a JSON representation
   factory MessageContentTextAnnotationsFilePath.fromJson(
-          Map<String, dynamic> json) =>
-      _$MessageContentTextAnnotationsFilePathFromJson(json);
+    Map<String, dynamic> json,
+  ) => _$MessageContentTextAnnotationsFilePathFromJson(json);
 
   /// List of all property names of schema
   static const List<String> propertyNames = ['file_id'];
@@ -98,8 +98,6 @@ abstract class MessageContentTextAnnotationsFilePath
 
   /// Map representation of object (not serialized)
   Map<String, dynamic> toMap() {
-    return {
-      'file_id': fileId,
-    };
+    return {'file_id': fileId};
   }
 }

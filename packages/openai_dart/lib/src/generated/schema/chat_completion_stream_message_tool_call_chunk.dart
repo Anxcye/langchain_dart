@@ -36,8 +36,8 @@ abstract class ChatCompletionStreamMessageToolCallChunk
 
   /// Object construction from a JSON representation
   factory ChatCompletionStreamMessageToolCallChunk.fromJson(
-          Map<String, dynamic> json) =>
-      _$ChatCompletionStreamMessageToolCallChunkFromJson(json);
+    Map<String, dynamic> json,
+  ) => _$ChatCompletionStreamMessageToolCallChunkFromJson(json);
 
   /// List of all property names of schema
   static const List<String> propertyNames = ['index', 'id', 'type', 'function'];
@@ -49,12 +49,7 @@ abstract class ChatCompletionStreamMessageToolCallChunk
 
   /// Map representation of object (not serialized)
   Map<String, dynamic> toMap() {
-    return {
-      'index': index,
-      'id': id,
-      'type': type,
-      'function': function,
-    };
+    return {'index': index, 'id': id, 'type': type, 'function': function};
   }
 }
 

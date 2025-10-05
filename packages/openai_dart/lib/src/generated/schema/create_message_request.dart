@@ -40,7 +40,7 @@ abstract class CreateMessageRequest with _$CreateMessageRequest {
     'role',
     'content',
     'attachments',
-    'metadata'
+    'metadata',
   ];
 
   /// Perform validations on the schema property values
@@ -69,14 +69,12 @@ sealed class CreateMessageRequestContent with _$CreateMessageRequestContent {
   const CreateMessageRequestContent._();
 
   /// An array of content parts with a defined type, each can be of type `text` or images can be passed with `image_url` or `image_file`. Image types are only supported on [Vision-compatible models](https://platform.openai.com/docs/models).
-  const factory CreateMessageRequestContent.parts(
-    List<MessageContent> value,
-  ) = CreateMessageRequestContentListMessageContent;
+  const factory CreateMessageRequestContent.parts(List<MessageContent> value) =
+      CreateMessageRequestContentListMessageContent;
 
   /// The text contents of the message.
-  const factory CreateMessageRequestContent.text(
-    String value,
-  ) = CreateMessageRequestContentString;
+  const factory CreateMessageRequestContent.text(String value) =
+      CreateMessageRequestContentString;
 
   /// Object construction from a JSON representation
   factory CreateMessageRequestContent.fromJson(Map<String, dynamic> json) =>
@@ -91,16 +89,16 @@ class _CreateMessageRequestContentConverter
   @override
   CreateMessageRequestContent fromJson(Object? data) {
     if (data is List && data.every((item) => item is Map)) {
-      return CreateMessageRequestContentListMessageContent(data
-          .map((i) => MessageContent.fromJson(i as Map<String, dynamic>))
-          .toList(growable: false));
+      return CreateMessageRequestContentListMessageContent(
+        data
+            .map((i) => MessageContent.fromJson(i as Map<String, dynamic>))
+            .toList(growable: false),
+      );
     }
     if (data is String) {
       return CreateMessageRequestContentString(data);
     }
-    throw Exception(
-      'Unexpected value for CreateMessageRequestContent: $data',
-    );
+    throw Exception('Unexpected value for CreateMessageRequestContent: $data');
   }
 
   @override

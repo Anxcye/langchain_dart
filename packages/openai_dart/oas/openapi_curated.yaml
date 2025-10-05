@@ -2961,6 +2961,8 @@ components:
             Can be used in conjunction with the `seed` request parameter to understand when backend changes have been made that might impact determinism.
         object:
           type: string
+          nullable: true
+          default: chat.completion
           description: The object type, which is always `chat.completion`.
           # enum: [ chat.completion ] # Anyscale API sends `text_completion` instead
         usage:
@@ -2970,7 +2972,7 @@ components:
         - created
         # - id # Made nullable to support OpenRouter API which doesn't return this field with some models
         - model
-        - object
+        # - object # GLM API may return null here
     ChatCompletionResponseChoice:
       type: object
       description: A choice the model generated for the input prompt.
@@ -3097,6 +3099,8 @@ components:
             Can be used in conjunction with the `seed` request parameter to understand when backend changes have been made that might impact
         object:
           type: string
+          nullable: true
+          default: chat.completion.chunk
           description: The object type, which is always `chat.completion.chunk`.
           # enum: [ chat.completion.chunk ] # OpenRouter API sends `chat.completion` instead
         usage:

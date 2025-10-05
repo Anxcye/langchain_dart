@@ -28,8 +28,8 @@ abstract class ListPaginatedFineTuningJobsResponse
 
   /// Object construction from a JSON representation
   factory ListPaginatedFineTuningJobsResponse.fromJson(
-          Map<String, dynamic> json) =>
-      _$ListPaginatedFineTuningJobsResponseFromJson(json);
+    Map<String, dynamic> json,
+  ) => _$ListPaginatedFineTuningJobsResponseFromJson(json);
 
   /// List of all property names of schema
   static const List<String> propertyNames = ['data', 'has_more', 'object'];
@@ -41,11 +41,7 @@ abstract class ListPaginatedFineTuningJobsResponse
 
   /// Map representation of object (not serialized)
   Map<String, dynamic> toMap() {
-    return {
-      'data': data,
-      'has_more': hasMore,
-      'object': object,
-    };
+    return {'data': data, 'has_more': hasMore, 'object': object};
   }
 }
 

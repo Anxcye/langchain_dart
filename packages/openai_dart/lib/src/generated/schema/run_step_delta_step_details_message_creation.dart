@@ -22,8 +22,8 @@ abstract class RunStepDeltaStepDetailsMessageCreation
 
   /// Object construction from a JSON representation
   factory RunStepDeltaStepDetailsMessageCreation.fromJson(
-          Map<String, dynamic> json) =>
-      _$RunStepDeltaStepDetailsMessageCreationFromJson(json);
+    Map<String, dynamic> json,
+  ) => _$RunStepDeltaStepDetailsMessageCreationFromJson(json);
 
   /// List of all property names of schema
   static const List<String> propertyNames = ['message_id'];
@@ -35,8 +35,6 @@ abstract class RunStepDeltaStepDetailsMessageCreation
 
   /// Map representation of object (not serialized)
   Map<String, dynamic> toMap() {
-    return {
-      'message_id': messageId,
-    };
+    return {'message_id': messageId};
   }
 }

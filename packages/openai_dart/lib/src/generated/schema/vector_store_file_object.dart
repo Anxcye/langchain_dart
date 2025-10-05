@@ -56,7 +56,7 @@ abstract class VectorStoreFileObject with _$VectorStoreFileObject {
     'vector_store_id',
     'status',
     'last_error',
-    'chunking_strategy'
+    'chunking_strategy',
   ];
 
   /// Perform validations on the schema property values
@@ -128,10 +128,7 @@ abstract class VectorStoreFileObjectLastError
 
   /// Map representation of object (not serialized)
   Map<String, dynamic> toMap() {
-    return {
-      'code': code,
-      'message': message,
-    };
+    return {'code': code, 'message': message};
   }
 }
 

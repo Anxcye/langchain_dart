@@ -50,8 +50,8 @@ abstract class ChatCompletionStreamResponseDelta
 
   /// Object construction from a JSON representation
   factory ChatCompletionStreamResponseDelta.fromJson(
-          Map<String, dynamic> json) =>
-      _$ChatCompletionStreamResponseDeltaFromJson(json);
+    Map<String, dynamic> json,
+  ) => _$ChatCompletionStreamResponseDeltaFromJson(json);
 
   /// List of all property names of schema
   static const List<String> propertyNames = [
@@ -61,7 +61,7 @@ abstract class ChatCompletionStreamResponseDelta
     'refusal',
     'tool_calls',
     'function_call',
-    'audio'
+    'audio',
   ];
 
   /// Perform validations on the schema property values
@@ -112,15 +112,15 @@ abstract class ChatCompletionStreamResponseDeltaAudio
 
   /// Object construction from a JSON representation
   factory ChatCompletionStreamResponseDeltaAudio.fromJson(
-          Map<String, dynamic> json) =>
-      _$ChatCompletionStreamResponseDeltaAudioFromJson(json);
+    Map<String, dynamic> json,
+  ) => _$ChatCompletionStreamResponseDeltaAudioFromJson(json);
 
   /// List of all property names of schema
   static const List<String> propertyNames = [
     'id',
     'expires_at',
     'data',
-    'transcript'
+    'transcript',
   ];
 
   /// Perform validations on the schema property values

@@ -43,10 +43,7 @@ abstract class PredictionContent with _$PredictionContent {
 
   /// Map representation of object (not serialized)
   Map<String, dynamic> toMap() {
-    return {
-      'type': type,
-      'content': content,
-    };
+    return {'type': type, 'content': content};
   }
 }
 
@@ -68,9 +65,8 @@ sealed class PredictionContentContent with _$PredictionContentContent {
 
   /// The content used for a Predicted Output. This is often the
   /// text of a file you are regenerating with minor changes.
-  const factory PredictionContentContent.text(
-    String value,
-  ) = PredictionContentContentString;
+  const factory PredictionContentContent.text(String value) =
+      PredictionContentContentString;
 
   /// Object construction from a JSON representation
   factory PredictionContentContent.fromJson(Map<String, dynamic> json) =>
@@ -86,24 +82,26 @@ class _PredictionContentContentConverter
   PredictionContentContent fromJson(Object? data) {
     if (data is List && data.every((item) => item is Map)) {
       return PredictionContentContentListChatCompletionMessageContentPartText(
-          data
-              .map((i) => ChatCompletionMessageContentPartText.fromJson(
-                  i as Map<String, dynamic>))
-              .toList(growable: false));
+        data
+            .map(
+              (i) => ChatCompletionMessageContentPartText.fromJson(
+                i as Map<String, dynamic>,
+              ),
+            )
+            .toList(growable: false),
+      );
     }
     if (data is String) {
       return PredictionContentContentString(data);
     }
-    throw Exception(
-      'Unexpected value for PredictionContentContent: $data',
-    );
+    throw Exception('Unexpected value for PredictionContentContent: $data');
   }
 
   @override
   Object? toJson(PredictionContentContent data) {
     return switch (data) {
       PredictionContentContentListChatCompletionMessageContentPartText(
-        value: final v
+        value: final v,
       ) =>
         v,
       PredictionContentContentString(value: final v) => v,

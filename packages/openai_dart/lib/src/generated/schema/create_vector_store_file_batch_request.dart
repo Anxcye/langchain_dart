@@ -27,8 +27,8 @@ abstract class CreateVectorStoreFileBatchRequest
 
   /// Object construction from a JSON representation
   factory CreateVectorStoreFileBatchRequest.fromJson(
-          Map<String, dynamic> json) =>
-      _$CreateVectorStoreFileBatchRequestFromJson(json);
+    Map<String, dynamic> json,
+  ) => _$CreateVectorStoreFileBatchRequestFromJson(json);
 
   /// List of all property names of schema
   static const List<String> propertyNames = ['file_ids', 'chunking_strategy'];
@@ -40,9 +40,6 @@ abstract class CreateVectorStoreFileBatchRequest
 
   /// Map representation of object (not serialized)
   Map<String, dynamic> toMap() {
-    return {
-      'file_ids': fileIds,
-      'chunking_strategy': chunkingStrategy,
-    };
+    return {'file_ids': fileIds, 'chunking_strategy': chunkingStrategy};
   }
 }
